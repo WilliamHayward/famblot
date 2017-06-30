@@ -17,6 +17,10 @@ module.exports = function(robot) {
                 if (dice.match(/[0-9]+d[0-9]+/)) {
                     count = dice.split('d')[0];
                     sides = dice.split('d')[1];
+                    if (count > 99) {
+                        res.send(dice + ": That is too many dice. I only have small robotic hands.");
+                        return;
+                    }
                     results = "";
                     total = 0;
                     for (d = 0; d < count; d++) {
